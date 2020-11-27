@@ -12,6 +12,7 @@ struct BST_node{
 class BST{
 	private:
 		BST_node * root;
+		int nodes;
 		void printTree(const BST_node * r, unsigned int level);
 		void printNode(const BST_node * node);
 	public:

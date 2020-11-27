@@ -5,7 +5,7 @@
 using namespace std;
 
 int main(int argc, char * argv[]){
-	int n = 1000;
+	int n = 10;
 	unsigned int data[n];
 	BST ordererData;
 	BST unordererData;
@@ -17,14 +17,22 @@ int main(int argc, char * argv[]){
 	
 	random_shuffle(data, data + n);
 	
+	cout << "Numeros desordenados: " << endl;
 	for(unsigned int i = 0; i < n; i++){
 		unordererData.insert(data[i]);
+		cout << data[i] << " - " ;
 	}
+	cout << endl;
 	
 	cout << "BST con los datos desordenados: " << endl;
 	unordererData.printTree();
 	
 	cout << "BST con los datos ordenados: " << endl;
 	ordererData.printTree();
+
+	cout << "Búsquedas: " << endl;
+	for(int i = -5; i < 5+n; i++){
+		cout << "Buscar " << i << " -> " << unordererData.isInserted(i) << endl;
+	}
 	
 }
