@@ -3,9 +3,7 @@
 #include <iostream>
 using namespace std;
 
-class NodeBT{
-	private: 
-	
+class NodeBT{	
 	public:
 		NodeBT * leftChild;
 		NodeBT * rightChild;
@@ -13,6 +11,7 @@ class NodeBT{
 		NodeBT(int x);
 		~NodeBT();
 		bool Node_search(int x);
+	private:
 };
 
 #endif

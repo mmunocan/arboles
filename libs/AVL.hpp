@@ -1,17 +1,26 @@
 #ifndef AVL_HPP
 #define AVL_HPP
 #include <iostream>
+#include "NodeBT.hpp"
 using namespace std;
 
-struct AVL_node{
-	AVL_node * leftChild;
-	AVL_node * rightChild;
-	int value;
-	unsigned int height;
-	// Agregar otras variables de ser necesario
+class AVL_node : public NodeBT{
+	public:
+		AVL_node * leftChild;
+		AVL_node * rightChild;
+		int value;
+		unsigned int height;
+		// Agregar otras variables de ser necesario
+	private:
 };
 
 class AVL{
+	public:
+		AVL();
+		~AVL();
+		void insert(int x);
+		bool isInserted(int x);
+		void printTree();
 	private:
 		AVL_node * root;
 		void printTree(const AVL_node * r, unsigned int level);
@@ -20,12 +29,6 @@ class AVL{
 		// Rotaciones simples. Las rotaciones dobles se realizan combinando las simples
 		void leftRotate(const AVL_node * x, const AVL_node * y);
 		void rightRotate(const AVL_node * x, const AVL_node * y);
-	public:
-		AVL();
-		~AVL();
-		void insert(int x);
-		bool isInserted(int x);
-		void printTree();
 };
 
 #endif

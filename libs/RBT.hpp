@@ -1,15 +1,19 @@
 #ifndef RBT_HPP
 #define RBT_HPP
 #include <iostream>
+#include "NodeBT.hpp"
 using namespace std;
 
-struct RBT_node{
-	RBT_node * leftChild;
-	RBT_node * rightChild;
-	int value;
-	bool color; // false = red, true = black
-	unsigned int blackHeight;
-	// Agregar otras variables de ser necesario
+class RBT_node : public NodeBT{
+	public: 
+		RBT_node * leftChild;
+		RBT_node * rightChild;
+		int value;
+		bool color; // false = red, true = black
+		unsigned int blackHeight;
+		// Agregar otras variables de ser necesario
+	private:
+		
 };
 
 class RBT{
