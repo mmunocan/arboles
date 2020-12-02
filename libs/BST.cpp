@@ -9,17 +9,11 @@ BST::~BST(){}
 
 void BST::insert(int x){
 	if(nodes == 0){
-		root = new struct BST_node();
-		root->value = x;
-		root->leftChild = NULL;
-		root->rightChild = NULL;
+		root = new NodeBT(x);
 		nodes++;
 	}else{
-		struct BST_node *aux = root;
-		struct BST_node *toInsert =  new struct BST_node();
-		toInsert->leftChild = NULL;
-		toInsert->rightChild = NULL;
-		toInsert->value = x;
+		NodeBT *aux = root;
+		NodeBT *toInsert =  new NodeBT(x);
 		while(true){
 			if(aux->value < x){
 				if(aux->rightChild != NULL){
@@ -44,30 +38,7 @@ void BST::insert(int x){
 }
 
 bool BST::isInserted(int x){
-	if(root == NULL){
-		return false;
-	}
-	struct BST_node *aux = root;
-	while(true){
-		if(aux->value == x){
-			return true;
-		}else if(x < aux->value){
-			if(aux->leftChild != NULL){
-				aux = aux->leftChild;
-			}else{
-				return false;
-			}
-		}else{
-			// x > aux->value
-			if(aux->rightChild != NULL){
-				aux = aux->rightChild;
-			}else{
-				return false;
-			}
-			
-		}
-	}
-
+	return root->Node_search(x);
 }
 
 void BST::printTree(){
@@ -75,8 +46,8 @@ void BST::printTree(){
 	printTree(root, 0);
 }
 
-void BST::printTree(const BST_node * r, unsigned int level){
-	for(unsigned int i = 0; i < level; i++) cout << "-";
+void BST::printTree(const NodeBT * r, unsigned int level){
+	for(unsigned int i = 0; i < level; i++) cout << "-- ";
 	if(r != NULL){
 		printNode(r);
 		printTree(r->leftChild, level+1);
@@ -87,6 +58,6 @@ void BST::printTree(const BST_node * r, unsigned int level){
 }
 
 // Si al nodo se le agregan nuevos atributos, no olvidar agregarlos aquí
-void BST::printNode(const BST_node * node){
+void BST::printNode(const NodeBT * node){
 	cout << "<"<<node->value<<">" << endl;
 }

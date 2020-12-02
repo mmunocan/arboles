@@ -1,20 +1,15 @@
 #ifndef BST_HPP
 #define BST_HPP
 #include <iostream>
+#include "NodeBT.hpp"
 using namespace std;
-
-struct BST_node{
-	BST_node * leftChild;
-	BST_node * rightChild;
-	int value;
-};
 
 class BST{
 	private:
-		BST_node * root;
+		NodeBT * root;
 		int nodes;
-		void printTree(const BST_node * r, unsigned int level);
-		void printNode(const BST_node * node);
+		void printTree(const NodeBT * r, unsigned int level);
+		void printNode(const NodeBT * node);
 	public:
 		BST();
 		~BST();
