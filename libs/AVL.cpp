@@ -1,14 +1,5 @@
 #include "AVL.hpp"
 
-AVL_node::AVL_node(int x) : NodeBT(x){
-
-}
-
-
-AVL_node::~AVL_node(){
-
-}
-
 AVL::AVL(){
 	root = NULL;
 	nodes = 0;
@@ -61,7 +52,7 @@ void AVL::printTree(){
 void AVL::printTree(const NodeBT * r, unsigned int level){
 	for(unsigned int i = 0; i < level; i++) cout << "-- ";
 	if(r != NULL){
-		printNode(r);
+		((AVL_node*)r)->printNode();
 		printTree(r->leftChild, level+1);
 		printTree(r->rightChild, level+1);
 	}else{
@@ -69,11 +60,6 @@ void AVL::printTree(const NodeBT * r, unsigned int level){
 	}
 }
 
-// Si al nodo se le agregan nuevos atributos, no olvidar agregarlos aquí
-void AVL::printNode(const NodeBT * no){
-	AVL_node* node = (AVL_node*) no;
-	cout << "<"<<node->value<<", "<<node->height<<">" << endl;
-}
 
 void AVL::insertFixup(NodeBT * node){}
 

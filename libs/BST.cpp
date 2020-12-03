@@ -51,15 +51,10 @@ void BST::printTree(){
 void BST::printTree(const NodeBT * r, unsigned int level){
 	for(unsigned int i = 0; i < level; i++) cout << "-- ";
 	if(r != NULL){
-		printNode(r);
+		((NodeBT*)r)->printNode();
 		printTree(r->leftChild, level+1);
 		printTree(r->rightChild, level+1);
 	}else{
 		cout << "NULL" << endl;
 	}
-}
-
-// Si al nodo se le agregan nuevos atributos, no olvidar agregarlos aquí
-void BST::printNode(const NodeBT * node){
-	cout << "<"<<node->value<<">" << endl;
 }

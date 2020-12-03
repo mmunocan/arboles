@@ -9,7 +9,6 @@ class BST{
 		NodeBT * root;
 		int nodes; // Cantidad de nodos no nulos
 		void printTree(const NodeBT * r, unsigned int level);
-		void printNode(const NodeBT * node);
 	public:
 		BST();
 		~BST();

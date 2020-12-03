@@ -39,3 +39,8 @@ bool NodeBT::Node_search(int x){
 		}
 	}
 }
+
+// Si al nodo se le agregan nuevos atributos, no olvidar agregarlos aquí
+void NodeBT::printNode(){
+	cout << "<"<<value<<">" << endl;
+}
