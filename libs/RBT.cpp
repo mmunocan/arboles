@@ -1,21 +1,63 @@
 #include "RBT.hpp"
 
+
+RBT_node::RBT_node(int x) : NodeBT(x){
+
+}
+
+
+RBT_node::~RBT_node(){
+
+}
+
+
 RBT::RBT(){
 	root = NULL;
+	nodes = 0;
 }
 
 RBT::~RBT(){}
 
-void RBT::insert(int x){}
+void RBT::insert(int x){
+	if(nodes == 0){
+		root = new RBT_node(x);
+		nodes++;
+	}else{
+		NodeBT *aux = root;
+		NodeBT *toInsert =  new RBT_node(x);
+		while(true){
+			if(aux->value < x){
+				if(aux->rightChild != NULL){
+					aux = aux->rightChild;
+				}else{
+					aux->rightChild = toInsert;
+					nodes++;
+				}
+			}else if(x < aux->value){
+				if(aux->leftChild != NULL){
+					aux = aux->leftChild;
+				}else{
+					aux->leftChild = toInsert;
+					nodes++;
+				}
+			}else{
+				// x == aux->value
+				return;
+			}
+		}
+	}
+}
 
-bool RBT::isInserted(int x){return false;}
+bool RBT::isInserted(int x){
+	return root->Node_search(x);
+}
 
 void RBT::printTree(){
 	printTree(root, 0);
 }
 
-void RBT::printTree(const RBT_node * r, unsigned int level){
-	for(unsigned int i = 0; i < level; i++) cout << "-- ";
+void RBT::printTree(const NodeBT * r, unsigned int level){
+	for(unsigned int i = 0; i < level; i++) cout << "-";
 	if(r != NULL){
 		printNode(r);
 		printTree(r->leftChild, level+1);
@@ -26,8 +68,9 @@ void RBT::printTree(const RBT_node * r, unsigned int level){
 }
 
 // Si al nodo se le agregan nuevos atributos, no olvidar agregarlos aquí
-void RBT::printNode(const RBT_node * node){
-	char color = node->color ? 'B' : 'R';
+void RBT::printNode(const NodeBT * no){
+	RBT_node* node = (RBT_node*) no;
+	char color = node->isBlack ? 'B' : 'R';
 	cout << "<"<<node->value<<", "<<color<<", "<<node->blackHeight<<">" << endl;
 }
 

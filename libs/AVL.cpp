@@ -1,5 +1,14 @@
 #include "AVL.hpp"
 
+AVL_node::AVL_node(int x) : NodeBT(x){
+
+}
+
+
+AVL_node::~AVL_node(){
+
+}
+
 AVL::AVL(){
 	root = NULL;
 	nodes = 0;
@@ -12,8 +21,8 @@ void AVL::insert(int x){
 		root = new AVL_node(x);
 		nodes++;
 	}else{
-		AVL_node *aux = root;
-		AVL_node *toInsert =  new AVL_node(x);
+		NodeBT *aux = root;
+		NodeBT *toInsert =  new AVL_node(x);
 		while(true){
 			if(aux->value < x){
 				if(aux->rightChild != NULL){
@@ -36,7 +45,7 @@ void AVL::insert(int x){
 				return;
 			}
 		}
-		//insertFixup(toInsert);
+		insertFixup(toInsert);
 	}
 	
 }
@@ -49,7 +58,7 @@ void AVL::printTree(){
 	printTree(root, 0);
 }
 
-void AVL::printTree(const AVL_node * r, unsigned int level){
+void AVL::printTree(const NodeBT * r, unsigned int level){
 	for(unsigned int i = 0; i < level; i++) cout << "-- ";
 	if(r != NULL){
 		printNode(r);
@@ -61,12 +70,13 @@ void AVL::printTree(const AVL_node * r, unsigned int level){
 }
 
 // Si al nodo se le agregan nuevos atributos, no olvidar agregarlos aquí
-void AVL::printNode(const AVL_node * node){
+void AVL::printNode(const NodeBT * no){
+	AVL_node* node = (AVL_node*) no;
 	cout << "<"<<node->value<<", "<<node->height<<">" << endl;
 }
 
-void AVL::insertFixup(AVL_node * node){}
+void AVL::insertFixup(NodeBT * node){}
 
-void AVL::leftRotate(const AVL_node * x, const AVL_node * y){}
+void AVL::leftRotate(const NodeBT * x, const NodeBT * y){}
 
-void AVL::rightRotate(const AVL_node * x, const AVL_node * y){}
+void AVL::rightRotate(const NodeBT * x, const NodeBT * y){}
