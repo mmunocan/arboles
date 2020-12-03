@@ -10,6 +10,7 @@ int main(int argc, char * argv[]){
 	AVL ordererData;
 	AVL unordererData;
 	
+	cout << "Insercion de datos ordenados: " << endl;
 	for(unsigned int i = 0; i < n; i++){
 		data[i] = i;
 		ordererData.insert(i);
@@ -17,6 +18,7 @@ int main(int argc, char * argv[]){
 	
 	random_shuffle(data, data + n);
 	
+	cout << "Insercion de datos desordenados: " << endl;
 	for(unsigned int i = 0; i < n; i++){
 		unordererData.insert(data[i]);
 	}

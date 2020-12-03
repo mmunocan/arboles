@@ -1,6 +1,8 @@
 #include "AVL_Node.hpp"
 
-AVL_node::AVL_node(int x) : NodeBT(x){}
+AVL_node::AVL_node(int x) : NodeBT(x){
+	height = 0;
+}
 
 AVL_node::~AVL_node(){}
 
