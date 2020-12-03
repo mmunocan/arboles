@@ -1,6 +1,6 @@
 CPP=g++
 
-OBJETOS=libs/BST.o libs/AVL.o libs/RBT.o libs/NodeBT.o
+OBJETOS=libs/BST.o libs/AVL.o libs/RBT.o libs/NodeBT.o libs/AVL_Node.o libs/RBT_Node.o
 
 BINS=testBST testAVL testRBT
 
