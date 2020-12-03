@@ -12,6 +12,7 @@ class NodeBT{
 		~NodeBT();
 		bool Node_search(int x);
 	private:
+		
 };
 
 #endif

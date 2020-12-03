@@ -5,7 +5,9 @@ BST::BST(){
 	nodes = 0;
 }
 
-BST::~BST(){}
+BST::~BST(){
+	delete root;
+}
 
 void BST::insert(int x){
 	if(nodes == 0){

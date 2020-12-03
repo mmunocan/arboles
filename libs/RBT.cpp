@@ -15,7 +15,7 @@ void RBT::printTree(){
 }
 
 void RBT::printTree(const RBT_node * r, unsigned int level){
-	for(unsigned int i = 0; i < level; i++) cout << "-";
+	for(unsigned int i = 0; i < level; i++) cout << "-- ";
 	if(r != NULL){
 		printNode(r);
 		printTree(r->leftChild, level+1);

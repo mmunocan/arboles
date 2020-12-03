@@ -9,7 +9,8 @@ NodeBT::NodeBT(int x){
 
 
 NodeBT::~NodeBT(){
-
+	delete leftChild;
+	delete rightChild;
 }
 
 

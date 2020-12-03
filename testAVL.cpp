@@ -5,7 +5,7 @@
 using namespace std;
 
 int main(int argc, char * argv[]){
-	int n = 1000;
+	int n = 10;
 	unsigned int data[n];
 	AVL ordererData;
 	AVL unordererData;
@@ -26,5 +26,11 @@ int main(int argc, char * argv[]){
 	
 	cout << "AVL con los datos ordenados: " << endl;
 	ordererData.printTree();
+	
+	cout << "Búsquedas: " << endl;
+	
+	for(int i = -5; i < 5+n; i++){
+		cout << "Buscar " << i << " -> " << unordererData.isInserted(i) << endl;
+	}
 	
 }
