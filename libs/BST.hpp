@@ -7,7 +7,7 @@ using namespace std;
 class BST{
 	private:
 		NodeBT * root;
-		int nodes;
+		int nodes; // Cantidad de nodos no nulos
 		void printTree(const NodeBT * r, unsigned int level);
 		void printNode(const NodeBT * node);
 	public:

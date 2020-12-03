@@ -23,14 +23,14 @@ bool NodeBT::Node_search(int x){
 			return true;
 		}else if(x < aux->value){
 			if(aux->leftChild != NULL){
-				aux = aux->leftChild;
+				aux = (NodeBT*) (aux->leftChild);
 			}else{
 				return false;
 			}
 		}else{
 			// x > aux->value
 			if(aux->rightChild != NULL){
-				aux = aux->rightChild;
+				aux = (NodeBT*) (aux->rightChild);
 			}else{
 				return false;
 			}
