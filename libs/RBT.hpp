@@ -8,9 +8,11 @@ class RBT{
 	private:
 		RBT_node * root;
 		int nodes; // Cantidad de nodos no nulos
+		unsigned int treeBlackHeight;
 		void printTree(const NodeBT * r, unsigned int level);
 		// Extraido del libro de Cormen pg 312-316
-		void insertFixup(const RBT_node * node);
+		void insertFixup(RBT_node * node);
+		RBT_node* getUncle(const RBT_node* node);
 	public:
 		RBT();
 		~RBT();
