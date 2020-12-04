@@ -20,17 +20,32 @@ int main(int argc, char * argv[]){
 	for(unsigned int i = 0; i < n; i++){
 		unordererData.insert(data[i]);
 	}
-	
-	cout << "RBT con los datos desordenados: " << endl;
-	unordererData.printTree();
+
+	cout << "Búsquedas: " << endl;
+	for(int i = -2; i < 2+n; i++){
+		cout << "Buscar " << i << " -> " << unordererData.isInserted(i) << endl;
+	}
 	
 	cout << "RBT con los datos ordenados: " << endl;
 	ordererData.printTree();
+	
+	cout << "RBT con los datos desordenados: " << endl;
+	unordererData.printTree();
 
-	cout << "Búsquedas: " << endl;
-	for(int i = -5; i < 5+n; i++){
-		cout << "Buscar " << i << " -> " << unordererData.isInserted(i) << endl;
-	}
+	cout << "Ingresar nodo a rotar a la izquierda: ";
+	int b;
+	cin >> b;
+	unordererData.leftRotation(b);
+
+	cout << "Luego de rotar nodo " << b << endl;;
+	unordererData.printTree();
+
+	cout << "Ingresar nodo a rotar a la derecha: ";
+	cin >> b;
+	unordererData.rightRotation(b);
+
+	cout << "Luego de rotar nodo " << b << endl;;
+	unordererData.printTree();
 
 	cout << "Fin!" << endl;
 	
