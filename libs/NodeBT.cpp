@@ -44,3 +44,29 @@ bool NodeBT::Node_search(int x){
 void NodeBT::printNode(){
 	cout << "<"<<value<<">" << endl;
 }
+
+NodeBT* NodeBT::Node_leftRotation(){
+	cout << "Node_leftRotation..." << endl;
+	if(this->rightChild == NULL){
+		// Si no hay un subarbol con raíz y
+		return this;
+	}
+	NodeBT* x = this;
+	NodeBT* y = x->rightChild;
+	x->rightChild = y->leftChild;
+	y->leftChild = x;
+	return y;
+}
+
+NodeBT* NodeBT::Node_rightRotation(){
+	cout << "Node_rightRotation..." << endl;
+	if(this->leftChild == NULL){
+		// Si no hay un subarbol con raíz x
+		return this;
+	}
+	NodeBT* y = this;
+	NodeBT* x = y->leftChild;
+	y->leftChild = x->rightChild;
+	x->rightChild = y;
+	return x;
+}
