@@ -93,10 +93,24 @@ void AVL::insertFixup(vector<AVL_node*> * path){
 		if(abs(balanceFactor) >= 2){
 			cout << "Requiero un balanceo en: " << endl;
 			((AVL_node*)n)->printNode();
+			if(balanceFactor > 0){
+				rightRotate(n);
+			}else{
+				leftRotate(n);
+			}
 		}
 	}
 }
 
-void AVL::leftRotate(const NodeBT * x, const NodeBT * y){}
+void AVL::leftRotate(NodeBT * x){
+	cout << "Left rotation" << endl;
+}
 
-void AVL::rightRotate(const NodeBT * x, const NodeBT * y){}
+void AVL::rightRotate(NodeBT * x){
+	cout << "Right rotation" << endl;
+	NodeBT * right = x->rightChild;
+	NodeBT * rightLeft = right->leftChild;
+	x->rightChild = rightLeft;
+	right->leftChild = x;
+	
+}

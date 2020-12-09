@@ -19,8 +19,8 @@ class AVL{
 		void printTree(const NodeBT * r, unsigned int level);
 		void insertFixup(vector<AVL_node*> * path); // Rebalanceo
 		// Rotaciones simples. Las rotaciones dobles se realizan combinando las simples
-		void leftRotate(const NodeBT * x, const NodeBT * y);
-		void rightRotate(const NodeBT * x, const NodeBT * y);
+		void leftRotate(NodeBT * x);
+		void rightRotate(NodeBT * x);
 };
 
 #endif
