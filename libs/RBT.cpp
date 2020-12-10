@@ -59,6 +59,53 @@ void RBT::printTree(const NodeBT * r, unsigned int level){
 
 void RBT::insertFixup(const RBT_node * node){}
 
-void RBT::leftRotate(const RBT_node * x, const RBT_node * y){}
+// Implementación para rotar nodo según su valor
+bool RBT::leftRotation(int x){
+	cout << "RBT_leftRotation..." << endl;
+	RBT_node* aux = root;
+	if(aux->value == x){
+		root = (RBT_node*) aux->Node_leftRotation();
+		return true;
+	}
+	do{
+		if(x > aux->value){
+			if(aux->rightChild != NULL && aux->rightChild->value == x){
+				aux->rightChild = (RBT_node*) aux->rightChild->Node_leftRotation();
+				return true;
+			}
+			aux = (RBT_node*) aux->rightChild;
+		}else if(x < aux->value){
+			if(aux->leftChild != NULL && aux->leftChild->value == x){
+				aux->leftChild = (NodeBT*) aux->leftChild->Node_leftRotation();
+				return true;
+			}
+			aux = (RBT_node*) aux->leftChild;
+		}
+	}while(aux != NULL);
+	return false;
+}
 
-void RBT::rightRotate(const RBT_node * x, const RBT_node * y){}
+bool RBT::rightRotation(int x){
+	cout << "RBT_rightRotation..." << endl;
+	RBT_node* aux = root;
+	if(aux->value == x){
+		root = (RBT_node*) aux->Node_rightRotation();
+		return true;
+	}
+	do{
+		if(x > aux->value){
+			if(aux->rightChild != NULL && aux->rightChild->value == x){
+				aux->rightChild = (RBT_node*) aux->rightChild->Node_rightRotation();
+				return true;
+			}
+			aux = (RBT_node*) aux->rightChild;
+		}else if(x < aux->value){
+			if(aux->leftChild != NULL && aux->leftChild->value == x){
+				aux->leftChild = (NodeBT*) aux->leftChild->Node_rightRotation();
+				return true;
+			}
+			aux = (RBT_node*) aux->leftChild;
+		}
+	}while(aux != NULL);
+	return false;
+}

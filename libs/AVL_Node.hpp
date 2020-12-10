@@ -6,7 +6,7 @@ using namespace std;
 class AVL_node : public NodeBT{
 	public:
 		// Agregar otras variables de ser necesario
-		unsigned int height;
+		int height;
 		AVL_node(int x);
 		~AVL_node();
 		void printNode();

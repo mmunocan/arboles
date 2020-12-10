@@ -2,7 +2,6 @@
 #define AVL_HPP
 #include <iostream>
 #include <vector>
-#include <cmath>
 #include "AVL_Node.hpp"
 using namespace std;
 
@@ -19,8 +18,12 @@ class AVL{
 		void printTree(const NodeBT * r, unsigned int level);
 		void insertFixup(vector<AVL_node*> * path); // Rebalanceo
 		// Rotaciones simples. Las rotaciones dobles se realizan combinando las simples
-		void leftRotate(NodeBT * x);
-		void rightRotate(NodeBT * x);
+		void leftLeftRotate(NodeBT * parent, bool isLeft);
+		void rightRightRotate(NodeBT * parent, bool isLeft);
+		void rightLeftRotate(NodeBT * parent, bool isLeft);
+		void leftRightRotate(NodeBT * parent, bool isLeft);
+		void calculateHeight(NodeBT * n);
+		int balanceFactor(NodeBT * n);
 };
 
 #endif
