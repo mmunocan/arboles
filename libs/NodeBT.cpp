@@ -46,7 +46,6 @@ void NodeBT::printNode(){
 }
 
 NodeBT* NodeBT::Node_leftRotation(){
-	//cout << "Node_leftRotation..." << endl;
 	if(this->rightChild == NULL){
 		// Si no hay un subarbol con raíz y
 		return this;
@@ -59,7 +58,6 @@ NodeBT* NodeBT::Node_leftRotation(){
 }
 
 NodeBT* NodeBT::Node_rightRotation(){
-	//cout << "Node_rightRotation..." << endl;
 	if(this->leftChild == NULL){
 		// Si no hay un subarbol con raíz x
 		return this;

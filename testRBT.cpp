@@ -8,15 +8,17 @@ int main(int argc, char * argv[]){
 	int n = 10;
 	unsigned int data[n];
 	RBT ordererData;
+	RBT invertedData;
 	RBT unordererData;
 	
 	for(unsigned int i = 0; i < n; i++){
 		data[i] = i;
 		ordererData.insert(i);
+		invertedData.insert(n-i-1);
 	}
 	
 	random_shuffle(data, data + n);
-	
+
 	for(unsigned int i = 0; i < n; i++){
 		unordererData.insert(data[i]);
 	}
@@ -29,8 +31,13 @@ int main(int argc, char * argv[]){
 	cout << "RBT con los datos ordenados: " << endl;
 	ordererData.printTree();
 	
+	cout << "RBT con los datos invertidos: " << endl;
+	invertedData.printTree();
+	
 	cout << "RBT con los datos desordenados: " << endl;
 	unordererData.printTree();
+
+	return 0;
 
 	cout << "Ingresar nodo a rotar a la izquierda: ";
 	int b;
