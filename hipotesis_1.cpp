@@ -18,7 +18,6 @@ using namespace std;
 double * tomarTiempos(int cantValores, int cantConsultas);
 
 int main(int argc, char const *argv[]){
-	clock_t t_0 = clock();
 	if(argc < 2){
 		printf("Error! Faltan argumentos.\n");
 		printf("Usage: %s <cantidad_consultas>\n", argv[0]);
