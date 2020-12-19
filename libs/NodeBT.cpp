@@ -40,6 +40,26 @@ bool NodeBT::Node_search(int x){
 	}
 }
 
+int NodeBT::Node_altura(){
+	if(this == NULL){
+		return 0;
+	}
+	int hd = 0;
+	int hi = 0;
+	if(rightChild != NULL){
+		hd = rightChild->Node_altura();
+	}
+	if(leftChild != NULL){
+		hi = leftChild->Node_altura();
+	}
+
+	if(hd > hi){
+		return 1 + hd;
+	}
+	
+	return 1 + hi;
+}
+
 // Si al nodo se le agregan nuevos atributos, no olvidar agregarlos aquí
 void NodeBT::printNode(){
 	cout << "<"<<value<<">" << endl;

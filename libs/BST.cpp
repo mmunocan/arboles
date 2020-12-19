@@ -59,18 +59,9 @@ void BST::printTree(const NodeBT * r, unsigned int level){
 	}
 }
 
-// Basado en esquema de:
-//	https://www.geeksforgeeks.org/avl-tree-set-1-insertion/
-NodeBT* leftRotation(NodeBT* x){
-	if(x == NULL || x->rightChild == NULL){
-		return x;
+int BST::altura(){
+	if(root == NULL){
+		return 0;
 	}
-	NodeBT* y = x->rightChild;
-	x->rightChild = y->leftChild;
-	y->leftChild = x;
-	return y;
-}
-
-NodeBT rightRotation(NodeBT x){
-
+	return root->Node_altura();
 }

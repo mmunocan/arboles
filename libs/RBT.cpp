@@ -284,3 +284,10 @@ bool RBT::rightRotation(int x){
 	}while(aux != NULL);
 	return false;
 }
+
+int RBT::altura(){
+	if(root == NULL){
+		return 0;
+	}
+	return root->Node_altura();
+}

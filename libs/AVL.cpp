@@ -257,3 +257,7 @@ int AVL::balanceFactor(NodeBT * n){
 	balanceFactor = leftHeight - rightHeight;
 	return balanceFactor;
 }
+
+int AVL::altura(){
+	return root->height;
+}

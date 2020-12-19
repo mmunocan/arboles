@@ -10,9 +10,34 @@ using namespace std;
 
 // Hipóstesis 1:
 //	El AVL presenta un tiempo de consulta menor que RBT cuando los datos se insertan de manera aleatoria.
-// La prueba se realiza con arreglos de valores generados de manera secuencial
-// Se consideran elementos de x*(10^5), con x de 1 a 10.
-// La cantidad de repeticiones depende del argumento entregado
+
+// La prueba se realiza con arreglos de valores generados de manera 
+// secuencial que luego se mezclan
+// Se consideran elementos de x*(10^6), con x de 1 a 10.
+// La cantidad de consultas depende del argumento entregado
+double * tomarTiempos(int cantValores, int cantConsultas);
+
+int main(int argc, char const *argv[]){
+	clock_t t_0 = clock();
+	if(argc < 2){
+		printf("Error! Faltan argumentos.\n");
+		printf("Usage: %s <cantidad_consultas>\n", argv[0]);
+		printf("Salida: tiempoBST tiempoAVL tiempoRBT.\n");
+		return -1;
+	}
+	int cantConsultas = (int) atoi(argv[1]);
+
+	double* aux;
+	cout << "%n*10^6\tbst\tavl\trbt" << endl;
+	int cantValores;
+	for(int i=1; i<=10; i++){
+		cantValores = i * 1000000;
+		aux = tomarTiempos(cantValores, cantConsultas);
+		cout << i << "\t" << aux[0] << "\t" << aux[1] << "\t" << aux[2] << endl;
+		free(aux);
+	}
+	return 0;
+}
 
 double * tomarTiempos(int cantValores, int cantConsultas){
 	// Arreglo con los valores a insertar de 1 a cantValores
@@ -79,26 +104,4 @@ double * tomarTiempos(int cantValores, int cantConsultas){
 
 	free(consultas);
 	return ms;
-}
-
-int main(int argc, char const *argv[]){
-	clock_t t_0 = clock();
-	if(argc < 2){
-		printf("Error! Faltan argumentos.\n");
-		printf("Usage: %s <cantidad_consultas>\n", argv[0]);
-		printf("Salida: tiempoBST tiempoAVL tiempoRBT.\n");
-		return -1;
-	}
-	int cantConsultas = (int) atoi(argv[1]);
-
-	double* aux;
-	cout << "%n*10^5\tbst\tavl\trbt" << endl;
-	int cantValores;
-	for(int i=1; i<=10; i++){
-		cantValores = i * 100000;
-		aux = tomarTiempos(cantValores, cantConsultas);
-		cout << i << "\t" << aux[0] << "\t" << aux[1] << "\t" << aux[2] << endl;
-		free(aux);
-	}
-	return 0;
 }

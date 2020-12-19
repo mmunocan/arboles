@@ -15,8 +15,7 @@ class BST{
 		void insert(int x);
 		bool isInserted(int x);
 		void printTree();
-		NodeBT leftRotation(NodeBT x);
-		NodeBT rightRotation(NodeBT x);
+		int altura();
 };
 
 #endif

@@ -12,6 +12,7 @@ class AVL{
 		void insert(int x);
 		bool isInserted(int x);
 		void printTree();
+		int altura();
 	private:
 		AVL_node * root;
 		int nodes;

@@ -11,6 +11,7 @@ class NodeBT{
 		NodeBT(int x);
 		~NodeBT();
 		bool Node_search(int x);
+		int Node_altura();
 		void printNode();
 		NodeBT* Node_leftRotation();
 		NodeBT* Node_rightRotation();

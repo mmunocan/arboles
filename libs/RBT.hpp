@@ -20,6 +20,7 @@ class RBT{
 		void printTree();
 		bool leftRotation(int x);
 		bool rightRotation(int y);
+		int altura();
 };
 
 #endif
