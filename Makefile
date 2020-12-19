@@ -2,9 +2,9 @@ CPP=g++
 
 OBJETOS=libs/BST.o libs/AVL.o libs/RBT.o libs/NodeBT.o libs/AVL_Node.o libs/RBT_Node.o
 
-BINS=testBST testAVL testRBT
+BINS=time_hipotesis_1 testBST testAVL testRBT
 
-CPPFLAGS=-std=c++11 -O3 -DNDEBUG -w -lm
+CPPFLAGS=-Wall -g -O2 -std=c++11 -O3 -DNDEBUG -w -lm
 
 %.o: %.c
 	$(CPP) $(CPPFLAGS) -c $< -o $@
@@ -21,6 +21,9 @@ testAVL:
 	
 testRBT:
 	$(CPP) $(CPPFLAGS) -o ./testRBT testRBT.cpp $(OBJETOS) 	
+
+time_hipotesis_1:
+	$(CPP) $(CPPFLAGS) -o ./time_hipotesis_1 time_hipotesis_1.cpp $(OBJETOS)
 
 clean:
 	rm -f $(OBJETOS) $(BINS)

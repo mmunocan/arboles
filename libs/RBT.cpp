@@ -5,7 +5,9 @@ RBT::RBT(){
 	nodes = 0;
 }
 
-RBT::~RBT(){}
+RBT::~RBT(){
+	delete root;
+}
 
 void RBT::insert(int x){
 	// Paso 1 : Basado en algoritmo presentado en 
