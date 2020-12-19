@@ -50,6 +50,7 @@ void AVL::insert(int x){
 						
 					}
 					insertFixup(path);
+					delete path;
 					return;
 				}
 			}else{
