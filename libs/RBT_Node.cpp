@@ -5,7 +5,9 @@ RBT_node::RBT_node(int x) : NodeBT(x){
 	isBlack = false;
 }
 
-RBT_node::~RBT_node(){}
+RBT_node::~RBT_node(){
+	
+}
 
 // Si al nodo se le agregan nuevos atributos, no olvidar agregarlos aquí
 void RBT_node::printNode(){

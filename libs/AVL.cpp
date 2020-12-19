@@ -5,7 +5,9 @@ AVL::AVL(){
 	nodes = 0;
 }
 
-AVL::~AVL(){}
+AVL::~AVL(){
+	delete root;
+}
 
 void AVL::insert(int x){
 	if(nodes == 0){
