@@ -22,10 +22,19 @@ int main(int argc, char const *argv[]){
 	double* aux;
 	cout << "%n*10^5\tbst\tavl\trbt" << endl;
 	int cantValores;
+	double tiempos[] = {0.0, 0.0, 0.0};
 	for(int i=1; i<=10; i++){
 		cantValores = i * 100000;
-		aux = tomarTiempos(cantValores);
-		cout << i << "\t" << aux[0] << "\t" << aux[1] << "\t" << aux[2] << endl;
+		for(int j=0; j<10; j++){	// 10 repeticiones
+			aux = tomarTiempos(cantValores);
+			tiempos[0] += aux[0];
+			tiempos[1] += aux[1];
+			tiempos[2] += aux[2];
+		}
+		tiempos[0] /= 10;
+		tiempos[1] /= 10;
+		tiempos[2] /= 10;
+		cout << i << "\t" << tiempos[0] << "\t" << tiempos[1] << "\t" << tiempos[2] << endl;
 		free(aux);
 	}
 	return 0;
@@ -42,14 +51,14 @@ double * tomarTiempos(int cantValores){
 	ms[0] = 0.0;
 	ms[1] = 0.0;
 	ms[2] = 0.0;
-
+/*
 	// Toma de tiempo en inserciones sobre BST
 	clock_t t_0 = clock();
 	for(int i=1; i <= cantValores; i++){
 		arbolBB.insert(i);
 	}
 	ms[0] = (double)(clock() - t_0) / CLOCKS_PER_SEC;
-
+*/
 	// Toma de tiempo en inserciones sobre AVL
 	clock_t t_1 = clock();
 	for(int i=1; i <= cantValores; i++){

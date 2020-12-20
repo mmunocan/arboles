@@ -16,10 +16,11 @@ using namespace std;
 // La prueba se realiza con arreglos de valores generados de manera 
 // secuencial que luego se mezclan
 // Se consideran elementos de x*(10^5), con x de 1 a 10.
-// La cantidad de repeticiones depende del argumento entregado
+// Con 10 repeticiones
 int * medirAlturas(int cantValores);
 
 int main(int argc, char const *argv[]){
+	/*
 	if(argc < 2){
 		printf("Error! Faltan argumentos.\n");
 		printf("Usage: %s <repeticiones>\n", argv[0]);
@@ -27,7 +28,8 @@ int main(int argc, char const *argv[]){
 		return -1;
 	}
 	int repeticiones = (int) atoi(argv[1]);
-
+	*/
+	int repeticiones = 10;
 	int* aux;
 	double alturas[] = {0.0,0.0,0.0};
 	cout << "%n*10^5\tbst\tavl\trbt" << endl;
@@ -40,7 +42,10 @@ int main(int argc, char const *argv[]){
 			alturas[1] += aux[1];
 			alturas[2] += aux[2];
 		}
-		cout << i << "\t" << (alturas[0]/repeticiones) << "\t" << (alturas[1]/repeticiones) << "\t" << (alturas[2]/repeticiones) << endl;
+		alturas[0] /= repeticiones;
+		alturas[1] /= repeticiones;
+		alturas[2] /= repeticiones;
+		cout << i << "\t" << (alturas[0]) << "\t" << (alturas[1]) << "\t" << (alturas[2]) << endl;
 		free(aux);
 	}
 	return 0;
@@ -75,6 +80,5 @@ int * medirAlturas(int cantValores){
 	alts[0] = arbolBB.altura();
 	alts[1] = arbolAVL.altura();
 	alts[2] = arbolRN.altura();
-
 	return alts;
 }

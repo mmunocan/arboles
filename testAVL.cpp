@@ -6,7 +6,12 @@
 using namespace std;
 
 int main(int argc, char * argv[]){
-	int n = 10;
+	if(argc < 2){
+		printf("Error! Faltan argumentos.\n");
+		printf("Usage: %s <cantidad_elementos>\n", argv[0]);
+		return -1;
+	}
+	int n = (int) atoi(argv[1]);
 	unsigned int data[n];
 	AVL ordererData;
 	AVL unordererData;
@@ -82,5 +87,8 @@ int main(int argc, char * argv[]){
 	for(int i = -5; i < 5+n; i++){
 		cout << "Buscar " << i << " -> " << unordererData.isInserted(i) << endl;
 	}
+
+	cout << "Altura de datos ordenados: " << ordererData.altura() << endl;
+	cout << "Altura de datos desordenados: " << unordererData.altura() << endl;
 	
 }

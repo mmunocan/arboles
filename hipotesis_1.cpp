@@ -13,7 +13,7 @@ using namespace std;
 
 // La prueba se realiza con arreglos de valores generados de manera 
 // secuencial que luego se mezclan
-// Se consideran elementos de x*(10^6), con x de 1 a 10.
+// Se consideran elementos de x*(10^5), con x de 1 a 10.
 // La cantidad de consultas depende del argumento entregado
 double * tomarTiempos(int cantValores, int cantConsultas);
 
@@ -25,14 +25,22 @@ int main(int argc, char const *argv[]){
 		return -1;
 	}
 	int cantConsultas = (int) atoi(argv[1]);
-
 	double* aux;
-	cout << "%n*10^6\tbst\tavl\trbt" << endl;
+	cout << "%n*10^5\tbst\tavl\trbt" << endl;
 	int cantValores;
+	double tiempos[] = {0.0, 0.0, 0.0};
 	for(int i=1; i<=10; i++){
-		cantValores = i * 1000000;
-		aux = tomarTiempos(cantValores, cantConsultas);
-		cout << i << "\t" << aux[0] << "\t" << aux[1] << "\t" << aux[2] << endl;
+		cantValores = i * 100000;
+		for(int j=0; j<10; j++){	// 10 repeticiones
+			aux = tomarTiempos(cantValores, cantConsultas);
+			tiempos[0] += aux[0];
+			tiempos[1] += aux[1];
+			tiempos[2] += aux[2];
+		}
+		tiempos[0] /= 10;
+		tiempos[1] /= 10;
+		tiempos[2] /= 10;
+		cout << i << "\t" << tiempos[0] << "\t" << tiempos[1] << "\t" << tiempos[2] << endl;
 		free(aux);
 	}
 	return 0;
