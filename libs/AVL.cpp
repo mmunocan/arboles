@@ -14,43 +14,42 @@ void AVL::insert(int x){
 		root = new AVL_node(x);
 		nodes++;
 	}else{
-		vector<AVL_node*> * path = new vector<AVL_node*>();
+		vector<AVL_node*> path;
 		NodeBT *aux = root;
 		NodeBT *toInsert =  new AVL_node(x);
 		while(true){
 			if(aux->value < x){
 				if(aux->rightChild != NULL){
-					path->push_back((AVL_node*)aux);
+					path.push_back((AVL_node*)aux);
 					aux = aux->rightChild;
 				}else{
 					aux->rightChild = toInsert;
-					path->push_back((AVL_node*)aux);
+					path.push_back((AVL_node*)aux);
 					nodes++;
 					AVL_node * n;
-					for(int i = path->size() - 1; i >= 0; i--){
-						n = (*path)[i];
+					for(int i = path.size() - 1; i >= 0; i--){
+						n = path[i];
 						calculateHeight((NodeBT*)n);
 						
 					}
-					insertFixup(path);
+					insertFixup(&path);
 					return;
 				}
 			}else if(x < aux->value){
 				if(aux->leftChild != NULL){
-					path->push_back((AVL_node*)aux);
+					path.push_back((AVL_node*)aux);
 					aux = aux->leftChild;
 				}else{
 					aux->leftChild = toInsert;
-					path->push_back((AVL_node*)aux);
+					path.push_back((AVL_node*)aux);
 					nodes++;
 					AVL_node * n;
-					for(int i = path->size() - 1; i >= 0; i--){
-						n = (*path)[i];
+					for(int i = path.size() - 1; i >= 0; i--){
+						n = path[i];
 						calculateHeight((NodeBT*)n);
 						
 					}
-					insertFixup(path);
-					delete path;
+					insertFixup(&path);
 					return;
 				}
 			}else{
