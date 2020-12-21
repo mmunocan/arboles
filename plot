@@ -25,7 +25,7 @@ set yrange [8:1400]
 set logscale y
 
 set output 'fig_hipotesis_3.png'
-plot 'data_hipotesis_3' u 1:2 w lp t 'BST' ls 1, '' u 1:3 w lp t 'AVL' ls 2, '' u 1:4 w lp t 'RBT' ls 3
+plot 'data_hipotesis_3' u 1:3 w lp t 'AVL' ls 2, '' u 1:4 w lp t 'RBT' ls 3
 
 unset logscale y
 set yrange [15:65]
